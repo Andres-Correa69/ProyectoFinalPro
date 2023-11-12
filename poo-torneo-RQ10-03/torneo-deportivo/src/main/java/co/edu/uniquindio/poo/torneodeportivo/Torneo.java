@@ -14,6 +14,7 @@ import static co.edu.uniquindio.poo.util.AssertionUtil.ASSERTION;
 
 public class Torneo {
     private final String nombre;
+    private String genero;
     private LocalDate fechaInicio;
     private LocalDate fechaInicioInscripciones;
     private LocalDate fechaCierreInscripciones;
@@ -24,13 +25,13 @@ public class Torneo {
     private final Collection<Participante> participantes;
     private final CaracterTorneo caracter;
 
-    public Torneo(String nombre, LocalDate fechaInicio,
+    public Torneo(String nombre,String genero ,LocalDate fechaInicio,
             LocalDate fechaInicioInscripciones,
             LocalDate fechaCierreInscripciones, byte numeroParticipantes,
             byte limiteEdad, int valorInscripcion,TipoTorneo tipoTorneo,CaracterTorneo caracter) {
         
         ASSERTION.assertion( nombre != null , "El nombre es requerido");
-        
+        ASSERTION.assertion( genero != null , "El genero del torneo es requerido");
         
         
         ASSERTION.assertion( numeroParticipantes >= 0, "El número de participantes no puede ser negativo");
@@ -39,7 +40,7 @@ public class Torneo {
         
         
         this.nombre = nombre;
-        
+        this.genero = genero;
         setFechaInicioInscripciones(fechaInicioInscripciones);
         setFechaCierreInscripciones(fechaCierreInscripciones); 
         setFechaInicio(fechaInicio);
@@ -53,6 +54,9 @@ public class Torneo {
 
     public String getNombre() {
         return nombre;
+    }
+    public String getGenero(){
+        return genero;
     }
 
     public LocalDate getFechaInicio() {
@@ -85,6 +89,11 @@ public class Torneo {
 
     public CaracterTorneo getCaracter() {
         return caracter;
+    }
+
+    public void setGenero(String genero){
+        ASSERTION.assertion( genero != null , "El genero del torneo es requerido");
+        this.genero=genero;
     }
 
     public void setFechaInicio(LocalDate fechaInicio) {
