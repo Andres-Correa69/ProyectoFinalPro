@@ -19,6 +19,9 @@ public enum AssertionUtil {
         assertion(condicion, "ERROR: Condición no cumplida");
     }
 
-    public void assertion(String genero, String mensaje) {
+
+
+    public void assertion(String genero, String mensaje){
+        
     }
 }

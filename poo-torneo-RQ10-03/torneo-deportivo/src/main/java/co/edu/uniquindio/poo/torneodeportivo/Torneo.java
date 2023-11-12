@@ -206,7 +206,7 @@ public class Torneo {
                 } else if (jugador.getGenero().equalsIgnoreCase(getGenero())) {
                     registrarJugador(equipo, jugador);
                 }else {
-                   ASSERTION.assertion(getGenero(), "no se puede inscribir a este torneo por el genero");
+                    ASSERTION.assertion(getGenero(), "El jugador no puede registrarse por el genero.");
                 }
             }
         });
