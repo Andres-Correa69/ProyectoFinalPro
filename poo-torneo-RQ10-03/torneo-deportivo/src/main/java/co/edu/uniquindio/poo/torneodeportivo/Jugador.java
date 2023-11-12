@@ -15,8 +15,8 @@ public class Jugador extends Persona implements Participante {
     private final LocalDate fechaNacimiento;
 
     private final RegistroEstadistica registroEstadistica;
-    public Jugador(String nombre, String apellido, String email, String celular, LocalDate fechaNacimiento) {
-        super(nombre, apellido, email, celular);
+    public Jugador(String nombre, String apellido, String email, String celular, LocalDate fechaNacimiento, String genero) {
+        super(nombre, apellido, email, celular, genero);
         ASSERTION.assertion( fechaNacimiento != null , "La fecha de nacimiento es requerida");
         this.fechaNacimiento = fechaNacimiento;
         registroEstadistica = new RegistroEstadisticaImpl();
@@ -44,4 +44,6 @@ public class Jugador extends Persona implements Participante {
     public RegistroEstadistica getEstadisticaRegister() {
         return registroEstadistica;
     }
+
+ 
 }
