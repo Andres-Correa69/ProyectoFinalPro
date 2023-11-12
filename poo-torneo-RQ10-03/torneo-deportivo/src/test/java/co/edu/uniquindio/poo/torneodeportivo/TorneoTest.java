@@ -33,7 +33,7 @@ public class TorneoTest {
 
         // Recuperación y verificación de datos
         assertEquals("Copa Mundo",torneo.getNombre());
-        assertEquals("Masculino",torneo.getNombre());
+        assertEquals("Masculino",torneo.getGenero());
         assertEquals(LocalDate.of(2023, 10, 1),torneo.getFechaInicio());
         assertEquals(LocalDate.of(2023, 8, 1),torneo.getFechaInicioInscripciones());
         assertEquals(LocalDate.of(2023, 9, 15),torneo.getFechaCierreInscripciones());
@@ -43,6 +43,32 @@ public class TorneoTest {
         assertEquals(TipoTorneo.LOCAL,torneo.getTipoTorneo());
         LOG.info("Fin de prueba datos completos...");
     }
+
+    /**
+     * Verficar que el jugador se pueda registrar si es igual agenero el torneo
+     */
+    @Test
+    public void inscripcionJugadorMasculino() {
+        LOG.info("Inicio de prueba datos genero Masculino...");
+        // Almacenar los datos de prueba |Prueba|Masculino|null|null|24|0|0|null|LOCAL|GRUPAL
+        Torneo torneo= new Torneo("Prueba","Masculino",LocalDate.of(2023, 10, 1), LocalDate.of(2023, 8, 1), LocalDate.of(2023, 9, 15), (byte)24, (byte)0, 0,TipoTorneo.LOCAL,CaracterTorneo.GRUPAL);
+        Jugador jugador= new Jugador("Pedro", "canchas", "pedo@gmail.com", "3127854962", LocalDate.of(2000, 8, 1), "Masculino");
+        assertEquals(torneo.getGenero(),jugador.getGenero());
+        
+        
+        LOG.info("Fin de prueba datos nulos...");
+    }
+
+    @Test
+    public void inscripcionJugadorFemenino() {
+        LOG.info("Inicio de prueba datos genero Masculino...");
+        // Almacenar los datos de prueba |Prueba|Masculino|null|null|24|0|0|null|LOCAL|GRUPAL
+        Torneo torneo= new Torneo("Prueba","Femenino",LocalDate.of(2023, 10, 1), LocalDate.of(2023, 8, 1), LocalDate.of(2023, 9, 15), (byte)24, (byte)0, 0,TipoTorneo.LOCAL,CaracterTorneo.GRUPAL);
+        Jugador jugador= new Jugador("Pedra", "canchas", "pedo@gmail.com", "3127854962", LocalDate.of(2000, 8, 1), "Femenino");
+        assertEquals(torneo.getGenero(),jugador.getGenero());
+        LOG.info("Fin de prueba datos nulos...");
+    }
+
 
     /**
      * Verificar que la clase Torneo valide que se ingrese los datos
