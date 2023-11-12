@@ -150,4 +150,16 @@ public class TorneoTest {
         
         LOG.info("Fin de prueba Cierre inscripción anterior al inicio...");
     }
+
+    /**
+     * 
+     * la fecha de cierre de inscripciones
+     * 
+     */
+    @Test
+    public void prueba() {
+        
+        
+    }
+
 }

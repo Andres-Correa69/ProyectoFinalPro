@@ -320,4 +320,5 @@ public class Torneo {
         var b = buscarParticipante(participanteB);
         return a.comparar(b, estadistica);
     }
+
 }
