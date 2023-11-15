@@ -11,11 +11,15 @@ public class Enfrentamiento {
     private Equipo equipo2;
     private List<Jueces> jueces;
     private EstadoEnfrentamiento estado;
+    private String resultado;
+    
+
+    
 
     public Enfrentamiento(String nombre, String ubicacion, LocalDate fecha, Equipo equipo1, Equipo equipo2,
-            List<Jueces> jueces) {
+            List<Jueces> jueces, String resultado) {
 
-
+        this.resultado = resultado;
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.fecha = fecha;
@@ -24,6 +28,8 @@ public class Enfrentamiento {
         this.jueces = jueces;
         this.estado = EstadoEnfrentamiento.PENDIENTE;
     }
+
+    //METODOS DE ACCESO
 
     public String getNombre() {
         return nombre;
@@ -68,13 +74,12 @@ public class Enfrentamiento {
         if(aplazado){
             this.estado = EstadoEnfrentamiento.APLAZADO;
         }else{
-            // if (fechaEnfre==fechaActual && Resultado == null) {
-        //     this.estado = EstadoEnfrentamiento.ENJUEGO;
-            //}
-            // if (resultado!=null ){
-            //     this.estado = EstadoEnfrentamiento.FINALIZADO;
-                
-            // }
+            if (fecha== LocalDate.now() && resultado == null) {
+            this.estado = EstadoEnfrentamiento.ENJUEGO;
+            }
+            if (resultado!=null ){
+                this.estado = EstadoEnfrentamiento.FINALIZADO;  
+             }
         }
         
         
