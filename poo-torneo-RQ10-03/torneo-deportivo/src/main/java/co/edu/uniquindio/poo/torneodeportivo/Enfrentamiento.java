@@ -13,7 +13,7 @@ public class Enfrentamiento {
     private EstadoEnfrentamiento estado;
 
     public Enfrentamiento(String nombre, String ubicacion, LocalDate fecha, Equipo equipo1, Equipo equipo2,
-            List<Jueces> jueces, EstadoEnfrentamiento estado) {
+            List<Jueces> jueces) {
 
 
         this.nombre = nombre;
@@ -22,7 +22,7 @@ public class Enfrentamiento {
         this.equipo1 = equipo1;
         this.equipo2 = equipo2;
         this.jueces = jueces;
-        this.estado = estado;
+        this.estado = EstadoEnfrentamiento.PENDIENTE;
     }
 
     public String getNombre() {
@@ -64,12 +64,20 @@ public class Enfrentamiento {
     public EstadoEnfrentamiento getEstado() {
         return estado;
     }
-    public void setEstado(EstadoEnfrentamiento estado) {
-
-        // if (fechaEnfre==fechaActual) {
+    public void setEstado(boolean aplazado) {
+        if(aplazado){
+            this.estado = EstadoEnfrentamiento.APLAZADO;
+        }else{
+            // if (fechaEnfre==fechaActual && Resultado == null) {
         //     this.estado = EstadoEnfrentamiento.ENJUEGO;
-        // }
-        this.estado = estado;
+            //}
+            // if (resultado!=null ){
+            //     this.estado = EstadoEnfrentamiento.FINALIZADO;
+                
+            // }
+        }
+        
+        
     }
     public void estadoEnfrentamiento(EstadoEnfrentamiento estado){
 
