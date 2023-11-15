@@ -65,15 +65,17 @@ public class Enfrentamiento {
         return estado;
     }
     public void setEstado(EstadoEnfrentamiento estado) {
+
+        // if (fechaEnfre==fechaActual) {
+        //     this.estado = EstadoEnfrentamiento.ENJUEGO;
+        // }
         this.estado = estado;
     }
-    public void estadoEnfrentamiento(Enfrentamiento nombre,EstadoEnfrentamiento estado){
-            System.out.println("Estado: "+estado+"Enfrentamiento: "+nombre.getUbicacion());
+    public void estadoEnfrentamiento(EstadoEnfrentamiento estado){
+
+            // System.out.println("Estado: "+estado+"Enfrentamiento: "+nombre.getUbicacion());
+
     }
 
 
-
-
-
-    
 }
