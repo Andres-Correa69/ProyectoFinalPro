@@ -73,8 +73,7 @@ public class Enfrentamiento {
     public void setEstado(boolean aplazado) {
         if(aplazado){
             this.estado = EstadoEnfrentamiento.APLAZADO;
-        }else{
-            if (fecha== LocalDate.now() && resultado == null) {
+        }else if(fecha.isEqual(LocalDate.now()) && resultado == null) {
             this.estado = EstadoEnfrentamiento.ENJUEGO;
             }
             if (resultado!=null ){
@@ -83,12 +82,14 @@ public class Enfrentamiento {
         }
         
         
-    }
+    
+
     public void estadoEnfrentamiento(EstadoEnfrentamiento estado){
 
             // System.out.println("Estado: "+estado+"Enfrentamiento: "+nombre.getUbicacion());
 
     }
-
-
 }
+
+
+
