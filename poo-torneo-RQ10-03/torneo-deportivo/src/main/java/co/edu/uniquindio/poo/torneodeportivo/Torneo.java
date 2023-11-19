@@ -9,6 +9,7 @@ package co.edu.uniquindio.poo.torneodeportivo;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.List;
 import java.util.function.Predicate;
 import static co.edu.uniquindio.poo.util.AssertionUtil.ASSERTION;
 
@@ -319,6 +320,19 @@ public class Torneo {
         var a = buscarParticipante(participanteA);
         var b = buscarParticipante(participanteB);
         return a.comparar(b, estadistica);
+    }
+
+    public List<Enfrentamiento> listadoEnfrentamientoEquipo(List<Enfrentamiento> enfrentamientos, String nombre){
+        List<Enfrentamiento> equipo= new ArrayList<>();
+        for (Enfrentamiento enfrentamiento : enfrentamientos) {
+            if(enfrentamiento.getEquipo1().getNombreCompleto()==nombre){
+                equipo.add(enfrentamiento);
+            }else if(enfrentamiento.getEquipo2().getNombreCompleto()==nombre){
+                equipo.add(enfrentamiento);
+            }
+        }
+        return  equipo;
+
     }
 
 }

@@ -16,6 +16,14 @@ public class Enfrentamiento {
 
     
 
+    public String getResultado() {
+        return resultado;
+    }
+
+    public void setResultado(String resultado) {
+        this.resultado = resultado;
+    }
+
     public Enfrentamiento(String nombre, String ubicacion, LocalDate fecha, Equipo equipo1, Equipo equipo2,
             List<Jueces> jueces, String resultado) {
 

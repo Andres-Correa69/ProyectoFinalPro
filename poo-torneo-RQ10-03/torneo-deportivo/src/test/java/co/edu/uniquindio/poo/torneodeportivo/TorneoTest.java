@@ -11,6 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 import org.junit.jupiter.api.Test;
@@ -153,13 +155,45 @@ public class TorneoTest {
 
     /**
      * 
-     * la fecha de cierre de inscripciones
+     * Buscando los enfrentamientos que tubo un equipo
      * 
      */
     @Test
-    public void prueba() {
-        
-        
+    public void testListadoEnfrentamientosEquipo(){
+        LOG.info("inicio prueba Listadoenfrentamienos equipos");
+        Torneo torneo = new Torneo("Copa Mundo","Masculino" ,LocalDate.of(2023, 10, 1), LocalDate.of(2023, 8, 1), LocalDate.of(2023, 9, 15), (byte)24, (byte)0, 0,TipoTorneo.LOCAL,CaracterTorneo.GRUPAL);
+        List<Jueces> jueces = new ArrayList<Jueces>();
+        Jueces juez1 = new Jueces("Pedro Montoya", "001", "montoyap@gmail.com", "3217042971");
+        jueces.add(juez1);
+        Jugador representante1 = new Jugador("Andres", "Correa", "correavalencia334@gmail.com", "3054374735", LocalDate.of(2005, 01, 15), "Masculino");
+        Jugador representante2 = new Jugador("Fabian", "Londoño", "fabian@gmail.com", "3002682946", LocalDate.of(2005, 01, 15), "Masculino");
+        Equipo ingenieros = new Equipo("ingenieros", representante1);
+        Equipo fisicos = new Equipo("fisicos", representante2);
+        Enfrentamiento enfrentamiento0 = new Enfrentamiento("prueba0", "UQ", LocalDate.of(2023, 11, 9), ingenieros, fisicos, jueces, null);
+        Enfrentamiento enfrentamiento1 = new Enfrentamiento("prueba1", "UQ", LocalDate.of(2023, 11, 10), ingenieros, fisicos, jueces, null);
+        Enfrentamiento enfrentamiento2 = new Enfrentamiento("prueb2", "UQ", LocalDate.of(2023, 11, 13), ingenieros, fisicos, jueces, null);
+        Enfrentamiento enfrentamiento3 = new Enfrentamiento("prueba3", "UQ", LocalDate.of(2023, 11, 18), ingenieros, fisicos, jueces, null);
+        Enfrentamiento enfrentamiento4 = new Enfrentamiento("prueba4", "UQ", LocalDate.of(2023, 11, 18), ingenieros, fisicos, jueces, null);
+        enfrentamiento0.setEstado(true);
+        enfrentamiento1.setEstado(false);
+        enfrentamiento2.setEstado(true);
+        enfrentamiento3.setEstado(true);
+        enfrentamiento4.setResultado("Gano ingenieros 3-1");
+
+        List<Enfrentamiento> listado= new ArrayList<>();
+        listado.add(enfrentamiento0);
+        listado.add(enfrentamiento1);
+        listado.add(enfrentamiento2);
+        listado.add(enfrentamiento3);
+        listado.add(enfrentamiento4);
+        List<Enfrentamiento> res=new ArrayList<>();
+        res=torneo.listadoEnfrentamientoEquipo(listado, "ingenieros");
+        for (Enfrentamiento enfrentamiento : res) {
+            System.out.println(enfrentamiento.getEquipo1().getNombreCompleto()+","+enfrentamiento.getEstado()+","+enfrentamiento.getResultado());
+        }
+        System.out.println("Esto imprime: "+torneo.listadoEnfrentamientoEquipo(listado, "ingenieros").toString());
+
+        LOG.info("fin prueba estado en aplazado");
     }
 
 }
