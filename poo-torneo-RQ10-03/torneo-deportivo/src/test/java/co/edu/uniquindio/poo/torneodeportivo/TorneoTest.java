@@ -56,19 +56,21 @@ public class TorneoTest {
         Torneo torneo= new Torneo("Prueba","Masculino",LocalDate.of(2023, 10, 1), LocalDate.of(2023, 8, 1), LocalDate.of(2023, 9, 15), (byte)24, (byte)0, 0,TipoTorneo.LOCAL,CaracterTorneo.GRUPAL);
         Jugador jugador= new Jugador("Pedro", "canchas", "pedo@gmail.com", "3127854962", LocalDate.of(2000, 8, 1), "Masculino");
         assertEquals(torneo.getGenero(),jugador.getGenero());
+        torneo.registrarJugador("Prueba", jugador);
         
         
-        LOG.info("Fin de prueba datos nulos...");
+        LOG.info("Fin de prueba datos masculino");
     }
 
     @Test
     public void inscripcionJugadorFemenino() {
-        LOG.info("Inicio de prueba datos genero Masculino...");
+        LOG.info("Inicio de prueba datos genero Femenino...");
         // Almacenar los datos de prueba |Prueba|Masculino|null|null|24|0|0|null|LOCAL|GRUPAL
         Torneo torneo= new Torneo("Prueba","Femenino",LocalDate.of(2023, 10, 1), LocalDate.of(2023, 8, 1), LocalDate.of(2023, 9, 15), (byte)24, (byte)0, 0,TipoTorneo.LOCAL,CaracterTorneo.GRUPAL);
         Jugador jugador= new Jugador("Pedra", "canchas", "pedo@gmail.com", "3127854962", LocalDate.of(2000, 8, 1), "Femenino");
         assertEquals(torneo.getGenero(),jugador.getGenero());
-        LOG.info("Fin de prueba datos nulos...");
+        torneo.registrarJugador("Prueba", jugador);
+        LOG.info("Fin de prueba datos Femenino...");
     }
 
 
