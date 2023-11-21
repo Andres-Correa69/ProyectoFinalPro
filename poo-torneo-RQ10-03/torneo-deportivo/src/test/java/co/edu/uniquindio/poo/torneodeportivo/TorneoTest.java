@@ -173,13 +173,13 @@ public class TorneoTest {
         Enfrentamiento enfrentamiento1 = new Enfrentamiento("prueba1", "UQ", LocalDate.of(2023, 11, 10), ingenieros, fisicos, jueces, null);
         Enfrentamiento enfrentamiento2 = new Enfrentamiento("prueb2", "UQ", LocalDate.of(2023, 11, 13), ingenieros, fisicos, jueces, null);
         Enfrentamiento enfrentamiento3 = new Enfrentamiento("prueba3", "UQ", LocalDate.of(2023, 11, 18), ingenieros, fisicos, jueces, null);
-        Enfrentamiento enfrentamiento4 = new Enfrentamiento("prueba4", "UQ", LocalDate.of(2023, 11, 18), ingenieros, fisicos, jueces, null);
+        Enfrentamiento enfrentamiento4 = new Enfrentamiento("prueba4", "UQ", LocalDate.of(2023, 11, 20), ingenieros, fisicos, jueces, null);
+        enfrentamiento4.setResultado("Gano 3-1");
         enfrentamiento0.setEstado(true);
         enfrentamiento1.setEstado(false);
         enfrentamiento2.setEstado(true);
         enfrentamiento3.setEstado(true);
-        enfrentamiento4.setEstado(false);
-        enfrentamiento4.setResultado("Gano ingenieros 3-1");
+        
 
         List<Enfrentamiento> listado= new ArrayList<>();
         listado.add(enfrentamiento0);
