@@ -192,7 +192,56 @@ public class TorneoTest {
         for (Enfrentamiento enfrentamiento : res) {
             System.out.println(enfrentamiento.getEquipo1().getNombreCompleto()+","+enfrentamiento.getEstado()+","+enfrentamiento.getResultado());
         }
-        System.out.println("Esto imprime: "+torneo.listadoEnfrentamientoEquipo(listado, "ingenieros").toString());
+        //System.out.println("Esto imprime: "+torneo.listadoEnfrentamientoEquipo(listado, "ingenieros").toString());
+
+        LOG.info("fin prueba Listadoenfrentamienos equipos");
+    }
+
+
+    /**
+     * 
+     * Buscando los enfrentamientos donde esta el juez
+     * 
+     */
+    @Test
+    public void testListadoJuecesEnfrentamienos(){
+        LOG.info("inicio prueba Listadoenfrentamienos equipos");
+        Torneo torneo = new Torneo("Copa Mundo","Masculino" ,LocalDate.of(2023, 10, 1), LocalDate.of(2023, 8, 1), LocalDate.of(2023, 9, 15), (byte)24, (byte)0, 0,TipoTorneo.LOCAL,CaracterTorneo.GRUPAL);
+        List<Jueces> jueces = new ArrayList<Jueces>();
+        List<Jueces> jueces1 = new ArrayList<Jueces>();
+        Jueces juez1 = new Jueces("Pedro Montoya", "001", "montoyap@gmail.com", "3217042971");
+        Jueces juez2 = new Jueces("Pablo Gutierres", "002", "montoyap@gmail.com", "3217042971");
+        Jueces juez3 = new Jueces("Pitagoras Montoya", "003", "montoyap@gmail.com", "3217042971");
+        jueces.add(juez1);
+        jueces.add(juez2);
+        jueces.add(juez3);
+        jueces1.add(juez1);
+        jueces1.add(juez2);
+
+        Jugador representante1 = new Jugador("Andres", "Correa", "correavalencia334@gmail.com", "3054374735", LocalDate.of(2005, 01, 15), "Masculino");
+        Jugador representante2 = new Jugador("Fabian", "Londoño", "fabian@gmail.com", "3002682946", LocalDate.of(2005, 01, 15), "Masculino");
+        Equipo ingenieros = new Equipo("ingenieros", representante1);
+        Equipo fisicos = new Equipo("fisicos", representante2);
+        Enfrentamiento enfrentamiento0 = new Enfrentamiento("prueba0", "UQ", LocalDate.of(2023, 11, 9), ingenieros, fisicos, jueces, null);
+        Enfrentamiento enfrentamiento1 = new Enfrentamiento("prueba1", "UQ", LocalDate.of(2023, 11, 10), ingenieros, fisicos, jueces1, null);
+        Enfrentamiento enfrentamiento2 = new Enfrentamiento("prueb2", "UQ", LocalDate.of(2023, 11, 13), ingenieros, fisicos, jueces, null);
+        Enfrentamiento enfrentamiento3 = new Enfrentamiento("prueba3", "UQ", LocalDate.of(2023, 11, 18), ingenieros, fisicos, jueces1, null);
+        Enfrentamiento enfrentamiento4 = new Enfrentamiento("prueba4", "UQ", LocalDate.of(2023, 11, 20), ingenieros, fisicos, jueces, null);
+        
+        List<Enfrentamiento> listado= new ArrayList<>();
+        listado.add(enfrentamiento0);
+        listado.add(enfrentamiento1);
+        listado.add(enfrentamiento2);
+        listado.add(enfrentamiento3);
+        listado.add(enfrentamiento4);
+        List<Enfrentamiento> juez= new ArrayList<>();
+        juez=torneo.listJueces(listado, juez3);
+        for (Enfrentamiento enfrentamientos : juez) {
+            System.out.println("Nombre del Juez: "+juez3.getNombre()+" \nEnfrentamientos:"+enfrentamientos.getNombre());
+        }
+
+        
+        
 
         LOG.info("fin prueba Listadoenfrentamienos equipos");
     }
