@@ -9,7 +9,6 @@ package co.edu.uniquindio.poo.torneodeportivo;
 
 import java.time.LocalDate;
 import java.util.*;
-import java.util.List;
 import java.util.function.Predicate;
 import static co.edu.uniquindio.poo.util.AssertionUtil.ASSERTION;
 
@@ -206,7 +205,7 @@ public class Torneo {
                     registrarJugador(equipo, jugador);
                 } else if (jugador.getGenero().equalsIgnoreCase(getGenero())) {
                     registrarJugador(equipo, jugador);
-                }else {
+                } else {
                     ASSERTION.assertion(getGenero(), "El jugador no puede registrarse por el genero.");
                 }
             }
@@ -322,16 +321,30 @@ public class Torneo {
         return a.comparar(b, estadistica);
     }
 
-    public List<Enfrentamiento> listadoEnfrentamientoEquipo(List<Enfrentamiento> enfrentamientos, String nombre){
-        List<Enfrentamiento> equipo= new ArrayList<>();
+    public List<Enfrentamiento> listadoEnfrentamientoEquipo(List<Enfrentamiento> enfrentamientos, String nombre) {
+        List<Enfrentamiento> equipo = new ArrayList<>();
         for (Enfrentamiento enfrentamiento : enfrentamientos) {
-            if(enfrentamiento.getEquipo1().getNombreCompleto()==nombre){
+            if (enfrentamiento.getEquipo1().getNombreCompleto() == nombre) {
                 equipo.add(enfrentamiento);
-            }else if(enfrentamiento.getEquipo2().getNombreCompleto()==nombre){
+            } else if (enfrentamiento.getEquipo2().getNombreCompleto() == nombre) {
                 equipo.add(enfrentamiento);
             }
         }
-        return  equipo;
+        return equipo;
+
+    }
+
+    public List<Enfrentamiento> listJueces(List<Enfrentamiento> enfrentamientos, Jueces jueces) {
+        List<Enfrentamiento> juez = new ArrayList<>();
+        for (Enfrentamiento enfrentamiento : enfrentamientos) {
+            for (Jueces juece : enfrentamiento.getJueces()) {
+                if (juece.getNumLicenciaJuez().equals(jueces.getNumLicenciaJuez())) {
+                    juez.add(enfrentamiento);
+                }
+            }
+        }
+
+        return juez;
 
     }
 
