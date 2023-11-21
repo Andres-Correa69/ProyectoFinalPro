@@ -89,14 +89,7 @@ public class Enfrentamiento {
              }
         }
         
-        
-    
 
-    public void estadoEnfrentamiento(EstadoEnfrentamiento estado){
-
-            // System.out.println("Estado: "+estado+"Enfrentamiento: "+nombre.getUbicacion());
-
-    }
 }
 
 

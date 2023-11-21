@@ -178,6 +178,7 @@ public class TorneoTest {
         enfrentamiento1.setEstado(false);
         enfrentamiento2.setEstado(true);
         enfrentamiento3.setEstado(true);
+        enfrentamiento4.setEstado(false);
         enfrentamiento4.setResultado("Gano ingenieros 3-1");
 
         List<Enfrentamiento> listado= new ArrayList<>();
@@ -193,7 +194,7 @@ public class TorneoTest {
         }
         System.out.println("Esto imprime: "+torneo.listadoEnfrentamientoEquipo(listado, "ingenieros").toString());
 
-        LOG.info("fin prueba estado en aplazado");
+        LOG.info("fin prueba Listadoenfrentamienos equipos");
     }
 
 }
